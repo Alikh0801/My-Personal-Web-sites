@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
+
+/* @font-face {
+  font-family: "Noto Sans";
+  src: local("Noto Sans");
+  font-family: "Lora";
+  src: local("Lora");
+  font-family: "Cormorant Garamond";
+  src: local("Cormorant Garamond");
+} */
