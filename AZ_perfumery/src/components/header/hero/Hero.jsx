@@ -11,17 +11,17 @@ function Hero() {
                     in Noir Elegance
                 </h2>
 
-                <p className='text-sm sm:text-base md:text-xl lg:text-2xl font-["cormorant"] opacity-90 text-center px-5 sm:px-7 md:px-12 lg:px-10 xl:px-30'>
+                <p className='text-lg sm:xl md:text-2xl xl:text-3xl font-["cormorant"] opacity-80 text-center px-5 sm:px-7 md:px-12 lg:px-10 xl:px-30'>
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                     Neque velit tempora ducimus sequi ipsa, voluptates nulla assumenda quia eum ut.
                 </p>
             </div>
 
             {/* RIGHT - SLIDER SECTION */}
-            <div className='w-[280px] mx-auto h-auto flex flex-col items-center justify-center gap-10 py-8 sm:w-[300px] md:w-[350px]'>
-                {/* <h2 className='font-semibold font-[Noto_Sans] border-b inline-block text-2xl'>
-                    Endirimli Məhsullar
-                </h2> */}
+            <div className='w-[280px] sm:w-[300px] md:w-[350px] mx-auto h-auto flex flex-col items-center justify-center gap-10 py-8'>
+                <h2 className='font-semibold font-[Noto_Sans] border-b inline-block text-xl md:text-2xl'>
+                    Həftənin fürsəti
+                </h2>
                 <Slider />
             </div>
         </section>
