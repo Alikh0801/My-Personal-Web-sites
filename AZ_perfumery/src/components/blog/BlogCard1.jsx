@@ -6,7 +6,7 @@ function BlogCard1({ img, title, desc }) {
             <div>
                 <img
                     src={img}
-                    className='object-cover rounded-2xl w-[200px] md:w-[220px] lg:w-[230px] xl:w-full xl:px-14 xl:py-12' />
+                    className='object-cover rounded-2xl w-[150px] md:w-[210px] lg:w-[230px] xl:w-full xl:px-14 xl:py-12' />
             </div>
 
             <div className='text-[#EDF2C4] font-[cormorant] px-10 space-y-10 lg:py-10 lg:px-4 xl:px-40'>

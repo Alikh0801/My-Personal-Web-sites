@@ -3,37 +3,25 @@ import Slider from './Swipper'
 
 function Hero() {
     return (
-        <section
-            className="
-                w-full 
-                min-h-[70vh]
-                flex flex-col lg:flex-row 
-                items-center 
-                justify-between 
-                gap-10 
-                px-5 sm:px-8 lg:px-16 
-                py-10 sm:py-12 lg:py-16
-            "
-        >
+        <section className="flex flex-col gap-7 xl:grid xl:grid-cols-2 lg:py-10 xl:py-6">
             {/* LEFT CONTENT */}
-            <div className='flex flex-col gap-6 text-center lg:text-left max-w-[700px]'>
-                <h2 className='text-4xl sm:text-5xl lg:text-7xl font-[Noto_Sans] leading-tight'>
+            <div className='flex flex-col gap-8 xl:justify-center xl:gap-14'>
+                <h2 className='text-3xl font-semibold font-[Noto_Sans] text-center sm:text-4xl md:text-5xl lg:text-6xl'>
                     Wrap Yourself <br />
                     in Noir Elegance
                 </h2>
 
-                <p className='text-base sm:text-lg md:text-xl font-["cormorant"] opacity-90 leading-relaxed'>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. <br />
-                    Neque velit tempora ducimus sequi ipsa, voluptates nulla assumenda quia eum ut. <br />
-                    Animi iste autem repudiandae similique maxime veritatis temporibus rerum id.
+                <p className='text-sm sm:text-base md:text-xl lg:text-2xl font-["cormorant"] opacity-90 text-center px-5 sm:px-7 md:px-12 lg:px-10 xl:px-30'>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    Neque velit tempora ducimus sequi ipsa, voluptates nulla assumenda quia eum ut.
                 </p>
             </div>
 
             {/* RIGHT - SLIDER SECTION */}
-            <div className='w-full max-w-[600px] flex flex-col items-center px-4 sm:px-8'>
-                <h2 className='font-semibold font-[Noto_Sans] mb-4 border-b pb-2 inline-block text-lg sm:text-xl'>
+            <div className='w-[280px] mx-auto h-auto flex flex-col items-center justify-center gap-10 py-8 sm:w-[300px] md:w-[350px]'>
+                {/* <h2 className='font-semibold font-[Noto_Sans] border-b inline-block text-2xl'>
                     Endirimli Məhsullar
-                </h2>
+                </h2> */}
                 <Slider />
             </div>
         </section>

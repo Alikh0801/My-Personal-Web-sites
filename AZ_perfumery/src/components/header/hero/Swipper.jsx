@@ -37,25 +37,26 @@ function Slider() {
                 }}
                 modules={[Autoplay, Pagination]}
                 onAutoplayTimeLeft={onAutoplayTimeLeft}
-                className="mySwiper"
             >
                 {
                     itemsDiscount.map((p, i) => (
                         <SwiperSlide key={i}>
-                            <div className="bg-[#171515] rounded-2xl text-white shadow-lg flex flex-col gap-3 p-4 sm:p-6 w-full max-w-[500px] mx-auto">
-                                <h2 className="text-lg sm:text-xl font-semibold">{p.title}</h2>
-                                <p className="text-sm sm:text-base opacity-60">{p.desc}</p>
+                            <div className='flex flex-col bg-[#131329] p-4 rounded-xl text-[#F3F5DF] gap-2 md:p-4'>
+                                <h2 className="text-xl font-semibold opacity-80">{p.title}</h2>
+                                <p className="text-md opacity-80 md:text-xl">{p.desc}</p>
 
-                                <div className="flex gap-3 items-center">
+                                <div className="flex gap-2">
                                     <span className="text-xl font-bold">{p.price}</span>
                                     <span className="line-through opacity-50">{p.oldPrice}</span>
                                 </div>
 
-                                <img
-                                    src={`/images/${p.img}`}
-                                    alt="parfumeSwipper"
-                                    className="w-full h-60 sm:h-[330px] md:h-[380px] rounded-xl mt-3 object-cover"
-                                />
+                                <div className='w-full'>
+                                    <img
+                                        src={`/images/${p.img}`}
+                                        alt="parfumeSwipper"
+                                        className="h-[250px] w-full p-1 rounded-2xl sm:h-[280px] md:h-[300px]"
+                                    />
+                                </div>
                             </div>
                         </SwiperSlide>
                     ))
