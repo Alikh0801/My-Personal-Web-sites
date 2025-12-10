@@ -39,22 +39,22 @@ function Slider() {
                 onAutoplayTimeLeft={onAutoplayTimeLeft}
             >
                 {
-                    itemsDiscount.map((p, i) => (
-                        <SwiperSlide key={i}>
-                            <div className='flex flex-col bg-[#131329] p-4 rounded-xl text-[#F3F5DF] gap-2 md:p-4'>
-                                <h2 className="text-xl font-semibold opacity-80">{p.title}</h2>
-                                <p className="text-md opacity-80 md:text-xl">{p.desc}</p>
-
-                                <div className="flex gap-2">
-                                    <span className="text-xl font-bold">{p.price}</span>
-                                    <span className="line-through opacity-50">{p.oldPrice}</span>
+                    itemsDiscount.map((p) => (
+                        <SwiperSlide key={p.id}>
+                            <div className='flex flex-col bg-[#131329] p-3 rounded-xl text-[#F3F5DF] gap-2 md:p-4'>
+                                <div className='px-2 flex flex-col gap-2'>
+                                    <h2 className="text-lg font-semibold opacity-80">{p.title}</h2>
+                                    <div className="flex gap-2">
+                                        <span className="text-md font-bold">{p.price}</span>
+                                        <span className="text-sm line-through opacity-50">{p.oldPrice}</span>
+                                    </div>
                                 </div>
 
                                 <div className='w-full'>
                                     <img
                                         src={`/images/${p.img}`}
                                         alt="parfumeSwipper"
-                                        className="h-[250px] w-full p-1 rounded-2xl sm:h-[280px] md:h-[300px]"
+                                        className="h-[300px] sm:h-[310px] md:h-[350px] w-full p-1 rounded-2xl"
                                     />
                                 </div>
                             </div>

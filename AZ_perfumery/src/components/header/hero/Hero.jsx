@@ -18,7 +18,7 @@ function Hero() {
             </div>
 
             {/* RIGHT - SLIDER SECTION */}
-            <div className='w-[280px] sm:w-[300px] md:w-[350px] mx-auto h-auto flex flex-col items-center justify-center gap-10 py-8'>
+            <div className='w-[250px] sm:w-[260px] md:w-[300px] lg:w-[300px] mx-auto h-auto flex flex-col items-center justify-center gap-10 py-8'>
                 <h2 className='font-semibold font-[Noto_Sans] border-b inline-block text-xl md:text-2xl'>
                     Həftənin fürsəti
                 </h2>
