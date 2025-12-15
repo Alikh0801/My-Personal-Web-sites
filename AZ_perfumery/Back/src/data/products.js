@@ -1,0 +1,68 @@
+const products = [
+    {
+        id: 1,
+        title: "Tygar - Bvlgari",
+        category: "men",
+        image: "product_cartier_lapanthere.jpg",
+        price_30ml: "30",
+        price_50ml: "50",
+        price_100ml: "80",
+    },
+
+    {
+        id: 2,
+        title: "Tygar - Bvlgari",
+        category: "women",
+        image: "product_cartier_lapanthere.jpg",
+        price_30ml: "30",
+        price_50ml: "50",
+        price_100ml: "80",
+    },
+    {
+        id: 3,
+        title: "Tygar - Bvlgari",
+        category: "unisex",
+        image: "product_cartier_lapanthere.jpg",
+        price_30ml: "30",
+        price_50ml: "50",
+        price_100ml: "80",
+    },
+    {
+        id: 4,
+        title: "Tygar - Bvlgari",
+        category: "women",
+        image: "product_cartier_lapanthere.jpg",
+        price_30ml: "30",
+        price_50ml: "50",
+        price_100ml: "80",
+    },
+    {
+        id: 5,
+        title: "Tygar - Bvlgari",
+        category: "men",
+        image: "product_cartier_lapanthere.jpg",
+        price_30ml: "30",
+        price_50ml: "50",
+        price_100ml: "80",
+    },
+    {
+        id: 6,
+        title: "Tygar - Bvlgari",
+        category: "men",
+        image: "product_cartier_lapanthere.jpg",
+        price_30ml: "30",
+        price_50ml: "50",
+        price_100ml: "80",
+    },
+    {
+        id: 7,
+        title: "Tygar - Bvlgari",
+        category: "men",
+        image: "product_cartier_lapanthere.jpg",
+        price_30ml: "30",
+        price_50ml: "50",
+        price_100ml: "80",
+    },
+
+]
+module.exports = products;

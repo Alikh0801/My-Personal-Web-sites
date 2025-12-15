@@ -13,9 +13,8 @@ function Navbar() {
                 <h1 className="text-2xl font-[Lora]">A&Z Perfumery</h1>
             </a>
             <nav className="hidden lg:flex gap-10 text-xl font-[Lora]">
-                <a className="hover:scale-[1.1] transition-all hover:text-[#C8CC68]">BLOG</a>
-                <a className="hover:scale-[1.1] transition-all hover:text-[#C8CC68]">Məhsullar</a>
-                <a className="hover:scale-[1.1] transition-all hover:text-[#C8CC68]">Bizimlə əlaqə</a>
+                <a className="hover:scale-[1.1] transition-all hover:text-[#C8CC68] cursor-pointer">Məhsullar</a>
+                <a className="hover:scale-[1.1] transition-all hover:text-[#C8CC68] cursor-pointer">Bizimlə əlaqə</a>
             </nav>
             <div className="hidden lg:flex gap-6 items-center">
                 <div className="flex gap-6">
@@ -23,7 +22,7 @@ function Navbar() {
                     <ShoppingCart className="cursor-pointer hover:scale-[1.1] transition-[0.5]" />
                 </div>
 
-                <button className="flex gap-2 rounded-md px-4 py-2 font-[Lora] bg-[#2B5E33] text-amber-100 hover:bg-[#3D7845] transition-all">
+                <button className="flex gap-2 rounded-md px-4 py-2 font-[Lora] bg-[#2B5E33] text-amber-100 hover:bg-[#3D7845] transition-all cursor-pointer">
                     Daxil ol <UserRound />
                 </button>
             </div>
