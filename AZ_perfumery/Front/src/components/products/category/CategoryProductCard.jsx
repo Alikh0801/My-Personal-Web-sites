@@ -17,7 +17,6 @@ function CategoryProductCard({ title, image, price30ml, price50ml, price100ml })
                 w-[140px] sm:w-[155px] md:w-[170px] lg:w-[200px] 2xl:w-[220px] p-2 
                 bg-[#FFFFF2] shadow-sm 
                 transition-all duration-300 hover:shadow-xl hover:-translate-y-1'>
-
             <img
                 src={`https://azperfumeryapi.vercel.app/api/uploads/${image}`}
                 alt={title}

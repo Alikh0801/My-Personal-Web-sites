@@ -2,7 +2,7 @@ import React from 'react'
 
 function WhyUs() {
     return (
-        <div className="bg-[url(./background/bg.jpeg)] bg-cover bg-center text-amber-100 font-[playfair] px-4 md:px-10 lg:px-20 py-6">
+        <div className="bg-[url(/background/bg.jpeg)] bg-cover bg-center text-amber-100 font-[playfair] px-4 md:px-10 lg:px-20 py-6">
 
             <h2 className="text-2xl md:text-3xl text-center font-semibold py-8">
                 Niyə görə bizi seçməlisiniz?
