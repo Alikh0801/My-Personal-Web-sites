@@ -27,7 +27,7 @@ function AllProducts() {
 
     // Data fetch
     useEffect(() => {
-        fetch(`http://localhost:9000/api/products?category=${category}`)
+        fetch(`https://azperfumeryapi.vercel.app/api/products?category=${category}`)
             .then(res => res.json())
             .then(result => setProducts(result.data))
             .catch(err => console.error(err));
