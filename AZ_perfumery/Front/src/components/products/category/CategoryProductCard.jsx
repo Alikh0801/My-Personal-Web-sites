@@ -19,7 +19,7 @@ function CategoryProductCard({ title, image, price30ml, price50ml, price100ml })
                 transition-all duration-300 hover:shadow-xl hover:-translate-y-1'>
 
             <img
-                src={`http://localhost:9000/api/uploads/${image}`}
+                src={`https://azperfumeryapi.vercel.app/api/uploads/${image}`}
                 alt={title}
                 className='rounded-xl w-full object-cover 
                    transition-transform duration-300 
