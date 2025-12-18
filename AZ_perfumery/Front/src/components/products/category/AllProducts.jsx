@@ -42,74 +42,75 @@ function AllProducts() {
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentProducts = filteredData.slice(indexOfFirstItem, indexOfLastItem);
 
-    // Category dəyişəndə səhifəni sıfırla
+    // Category deyishende sehife sifirlanacaq 
     useEffect(() => {
         setCurrentPage(1);
     }, [category]);
 
     return (
         <div className='bg-[#F2EEDF]'>
-
-            {/* Category */}
-            <div className='flex justify-center items-center gap-10 text-md py-10'>
-                {["men", "women", "unisex"].map((cat) => (
+            <div className='max-w-[1440px] mx-auto'>
+                {/* Category */}
+                <div className='flex justify-center items-center gap-10 text-md py-10'>
+                    {["men", "women", "unisex"].map((cat) => (
+                        <button
+                            key={cat}
+                            onClick={() => setCategory(cat)}
+                            className={`cursor-pointer border-b-2 pb-1 transition-colors ${category === cat
+                                ? "border-blue-500 text-blue-500"
+                                : "border-transparent text-gray-700"
+                                }`}
+                        >
+                            {cat.charAt(0).toUpperCase() + cat.slice(1)}
+                        </button>
+                    ))}
+                </div>
+                {/* Product Grid */}
+                <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-12 p-5 justify-items-center'>
+                    {currentProducts.map(product => (
+                        <CategoryProductCard
+                            key={product.id}
+                            image={product.image}
+                            title={product.title}
+                            price30ml={product.price_30ml}
+                            price50ml={product.price_50ml}
+                            price100ml={product.price_100ml}
+                        />
+                    ))}
+                </div>
+                {/* Pagination */}
+                <div className="flex justify-center items-center gap-5 py-10 flex-wrap">
                     <button
-                        key={cat}
-                        onClick={() => setCategory(cat)}
-                        className={`cursor-pointer border-b-2 pb-1 transition-colors ${category === cat
-                            ? "border-blue-500 text-blue-500"
-                            : "border-transparent text-gray-700"
+                        onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                        disabled={currentPage === 1}
+                        className={`flex items-center justify-center w-8 h-8 rounded-lg border border-gray-300 bg-white text-gray-700 hover:bg-gray-100 hover:text-black transition-all ${currentPage === 1 ? "opacity-50 cursor-not-allowed" : ""
                             }`}
                     >
-                        {cat.charAt(0).toUpperCase() + cat.slice(1)}
+                        <ArrowLeftToLine className="w-5 h-5" />
                     </button>
-                ))}
-            </div>
-            {/* Product Grid */}
-            <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-5 p-5 justify-items-center'>
-                {currentProducts.map(product => (
-                    <CategoryProductCard
-                        key={product.id}
-                        image={product.image}
-                        title={product.title}
-                        price30ml={product.price_30ml}
-                        price50ml={product.price_50ml}
-                        price100ml={product.price_100ml}
-                    />
-                ))}
-            </div>
-            {/* Pagination */}
-            <div className="flex justify-center items-center gap-5 py-10 flex-wrap">
-                <button
-                    onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
-                    disabled={currentPage === 1}
-                    className={`flex items-center justify-center w-8 h-8 rounded-lg border border-gray-300 bg-white text-gray-700 hover:bg-gray-100 hover:text-black transition-all ${currentPage === 1 ? "opacity-50 cursor-not-allowed" : ""
-                        }`}
-                >
-                    <ArrowLeftToLine className="w-5 h-5" />
-                </button>
 
-                {[...Array(totalPages)].map((_, i) => (
+                    {[...Array(totalPages)].map((_, i) => (
+                        <button
+                            key={i}
+                            onClick={() => setCurrentPage(i + 1)}
+                            className={`w-8 h-8 flex items-center justify-center rounded-lg border border-gray-300 cursor-pointer transition-all ${currentPage === i + 1
+                                ? "bg-blue-500 text-white border-blue-500"
+                                : "bg-white text-gray-700 hover:bg-black hover:text-white"
+                                }`}
+                        >
+                            {i + 1}
+                        </button>
+                    ))}
+
                     <button
-                        key={i}
-                        onClick={() => setCurrentPage(i + 1)}
-                        className={`w-8 h-8 flex items-center justify-center rounded-lg border border-gray-300 cursor-pointer transition-all ${currentPage === i + 1
-                            ? "bg-blue-500 text-white border-blue-500"
-                            : "bg-white text-gray-700 hover:bg-black hover:text-white"
+                        onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                        disabled={currentPage === totalPages}
+                        className={`flex items-center justify-center w-8 h-8 rounded-lg border border-gray-300 bg-white text-gray-700 hover:bg-gray-100 hover:text-black transition-all ${currentPage === totalPages ? "opacity-50 cursor-not-allowed" : ""
                             }`}
                     >
-                        {i + 1}
+                        <ArrowRightFromLine className="w-5 h-5" />
                     </button>
-                ))}
-
-                <button
-                    onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
-                    disabled={currentPage === totalPages}
-                    className={`flex items-center justify-center w-8 h-8 rounded-lg border border-gray-300 bg-white text-gray-700 hover:bg-gray-100 hover:text-black transition-all ${currentPage === totalPages ? "opacity-50 cursor-not-allowed" : ""
-                        }`}
-                >
-                    <ArrowRightFromLine className="w-5 h-5" />
-                </button>
+                </div>
             </div>
         </div>
     );
