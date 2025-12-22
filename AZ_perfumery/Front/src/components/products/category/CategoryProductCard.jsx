@@ -1,15 +1,13 @@
-import React from 'react'
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { ShoppingCart } from 'lucide-react';
 
-
-function CategoryProductCard({ title, image, price30ml, price50ml, price100ml }) {
-    const [selectedMl, setSelectedMl] = useState("30ml")
+function CategoryProductCard({ title, image, prices }) {
+    const [selectedMl, setSelectedMl] = useState("30ml");
 
     const getPrice = () => {
-        if (selectedMl === "30ml") return price30ml;
-        if (selectedMl === "50ml") return price50ml;
-        if (selectedMl === "100ml") return price100ml;
+        // selectedMl: "30ml" => prices["30"]
+        const key = selectedMl.replace("ml", ""); // "30ml" => "30"
+        return prices[key];
     }
 
     return (
@@ -51,10 +49,6 @@ function CategoryProductCard({ title, image, price30ml, price50ml, price100ml })
                 </div>
             </div>
         </div>
-
-
-
-
     );
 }
 

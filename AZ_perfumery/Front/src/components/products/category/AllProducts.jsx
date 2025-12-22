@@ -8,7 +8,7 @@ function AllProducts() {
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage, setItemsPerPage] = useState(12);
 
-
+    // Responsive items per page
     useEffect(() => {
         const updateItemsPerPage = () => {
             const width = window.innerWidth;
@@ -17,9 +17,8 @@ function AllProducts() {
             else if (width < 1024) setItemsPerPage(8);
             else if (width < 1280) setItemsPerPage(8);
             else if (width < 1536) setItemsPerPage(10);
-            else if (width > 1536) setItemsPerPage(12);
             else setItemsPerPage(12);
-        }
+        };
         updateItemsPerPage();
         window.addEventListener("resize", updateItemsPerPage);
         return () => window.removeEventListener("resize", updateItemsPerPage);
@@ -42,7 +41,7 @@ function AllProducts() {
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentProducts = filteredData.slice(indexOfFirstItem, indexOfLastItem);
 
-    // Category deyishende sehife sifirlanacaq 
+    // Category change resets page
     useEffect(() => {
         setCurrentPage(1);
     }, [category]);
@@ -65,6 +64,7 @@ function AllProducts() {
                         </button>
                     ))}
                 </div>
+
                 {/* Product Grid */}
                 <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-12 p-5 justify-items-center'>
                     {currentProducts.map(product => (
@@ -72,15 +72,11 @@ function AllProducts() {
                             key={product.id}
                             image={product.image}
                             title={product.title}
-                            //  price30ml={product.prices["30"]}
-                            // price50ml={product.prices["50"]}
-                            // price100ml={product.prices["100"]}
-                            price30ml={product.price_30ml}
-                            price50ml={product.price_50ml}
-                            price100ml={product.price_100ml}
+                            prices={product.prices}
                         />
                     ))}
                 </div>
+
                 {/* Pagination */}
                 <div className="flex justify-center items-center gap-5 py-10 flex-wrap">
                     <button

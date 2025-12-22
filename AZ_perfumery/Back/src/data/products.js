@@ -4,6 +4,7 @@ const products = [
         title: "Tygar - Bvlgari",
         category: "women",
         image: "tygar-bvlgari.png",
+        bestSeller: false,
         discount: 0, // %
         prices: {
             "30": 30,
@@ -16,6 +17,7 @@ const products = [
         title: "Cartier - La Panthere",
         category: "women",
         image: "cartier-lapanthere.png",
+        bestSeller: false,
         discount: 50,
         prices: {
             "30": 30,
@@ -27,7 +29,8 @@ const products = [
         id: 3,
         title: "Bleu De Chanel",
         category: "women",
-        image: "bleu-de-chanel.jpg",
+        image: "blue-de-chanel.jpg",
+        bestSeller: true,
         discount: 50,
         prices: {
             "30": 30,
@@ -37,9 +40,10 @@ const products = [
     },
     {
         id: 4,
-        title: "Tygar - Bvlgari",
+        title: "Cartier - La Panthere",
         category: "men",
         image: "product_cartier_lapanthere.jpg",
+        bestSeller: true,
         discount: 50,
         prices: {
             "30": 30,
@@ -52,6 +56,7 @@ const products = [
         title: "Tygar - Bvlgari",
         category: "women",
         image: "product_lapenthere.jpg",
+        bestSeller: true,
         discount: 0,
         prices: {
             "30": 30,
@@ -64,6 +69,7 @@ const products = [
         title: "Tygar - Bvlgari",
         category: "unisex",
         image: "product_cartier_lapanthere.jpg",
+        bestSeller: true,
         discount: 0,
         prices: {
             "30": 30,
@@ -76,6 +82,7 @@ const products = [
         title: "Tygar - Bvlgari",
         category: "women",
         image: "product_cartier_lapanthere.jpg",
+        bestSeller: false,
         discount: 0,
         prices: {
             "30": 30,
@@ -88,6 +95,7 @@ const products = [
         title: "Tygar - Bvlgari",
         category: "unisex",
         image: "product_cartier_lapanthere.jpg",
+        bestSeller: false,
         discount: 0,
         prices: {
             "30": 30,
@@ -100,6 +108,7 @@ const products = [
         title: "Tygar - Bvlgari",
         category: "men",
         image: "product_cartier_lapanthere.jpg",
+        bestSeller: false,
         discount: 0,
         prices: {
             "30": 30,
@@ -112,6 +121,7 @@ const products = [
         title: "Tygar - Bvlgari",
         category: "men",
         image: "product_cartier_lapanthere.jpg",
+        bestSeller: false,
         discount: 0,
         prices: {
             "30": 30,
@@ -124,6 +134,7 @@ const products = [
         title: "Tygar - Bvlgari",
         category: "men",
         image: "product_cartier_lapanthere.jpg",
+        bestSeller: false,
         discount: 0,
         prices: {
             "30": 30,
@@ -136,6 +147,7 @@ const products = [
         title: "Tygar - Bvlgari",
         category: "men",
         image: "product_cartier_lapanthere.jpg",
+        bestSeller: false,
         discount: 0,
         prices: {
             "30": 30,
@@ -148,6 +160,7 @@ const products = [
         title: "Tygar - Bvlgari",
         category: "men",
         image: "product_cartier_lapanthere.jpg",
+        bestSeller: false,
         discount: 0,
         prices: {
             "30": 30,
@@ -160,6 +173,7 @@ const products = [
         title: "Tygar - Bvlgari",
         category: "men",
         image: "product_cartier_lapanthere.jpg",
+        bestSeller: false,
         discount: 0,
         prices: {
             "30": 30,
@@ -172,6 +186,7 @@ const products = [
         title: "Tygar - Bvlgari",
         category: "men",
         image: "product_cartier_lapanthere.jpg",
+        bestSeller: false,
         discount: 0,
         prices: {
             "30": 30,
@@ -184,6 +199,7 @@ const products = [
         title: "Tygar - Bvlgari",
         category: "men",
         image: "product_cartier_lapanthere.jpg",
+        bestSeller: false,
         discount: 0,
         prices: {
             "30": 30,
@@ -196,6 +212,7 @@ const products = [
         title: "Tygar - Bvlgari",
         category: "men",
         image: "product_cartier_lapanthere.jpg",
+        bestSeller: false,
         discount: 0,
         prices: {
             "30": 30,
@@ -208,6 +225,7 @@ const products = [
         title: "Tygar - Bvlgari",
         category: "men",
         image: "product_cartier_lapanthere.jpg",
+        bestSeller: false,
         discount: 0,
         prices: {
             "30": 30,
@@ -220,6 +238,7 @@ const products = [
         title: "Tygar - Bvlgari",
         category: "men",
         image: "product_cartier_lapanthere.jpg",
+        bestSeller: false,
         discount: 0,
         prices: {
             "30": 30,
@@ -232,6 +251,7 @@ const products = [
         title: "Tygar - Bvlgari",
         category: "men",
         image: "product_cartier_lapanthere.jpg",
+        bestSeller: false,
         discount: 0,
         prices: {
             "30": 30,

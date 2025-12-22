@@ -11,7 +11,6 @@ import './swipeer.css';
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-import { itemsDiscount } from "../../../db/discountData";
 
 function Slider() {
     const [discountProduct, setdiscountProduct] = useState([]);
