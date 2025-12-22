@@ -28,7 +28,7 @@ app.use('/api/uploads', express.static(path.join(__dirname, 'src/data/productsim
 
 app.use(router);
 
-const port = process.env.PORT || 9000;
+const port = process.env.PORT;
 app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
+    console.log(`Server is running`);
 });

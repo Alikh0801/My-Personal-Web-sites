@@ -25,6 +25,18 @@ const getCategoryProduct = (req, res) => {
     });
 };
 
+const getDiscountProducts = (req, res) => {
+    const discountedProducts = products.filter(product => product.discount > 0);
+
+    return res.status(200).json({
+        ok: true,
+        message: "Discounted products fetched successfully",
+        count: discountedProducts.length,
+        data: discountedProducts
+    })
+}
+
 module.exports = {
-    getCategoryProduct
+    getCategoryProduct,
+    getDiscountProducts
 }

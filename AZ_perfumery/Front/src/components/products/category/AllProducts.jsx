@@ -72,6 +72,9 @@ function AllProducts() {
                             key={product.id}
                             image={product.image}
                             title={product.title}
+                            //  price30ml={product.prices["30"]}
+                            // price50ml={product.prices["50"]}
+                            // price100ml={product.prices["100"]}
                             price30ml={product.price_30ml}
                             price50ml={product.price_50ml}
                             price100ml={product.price_100ml}
