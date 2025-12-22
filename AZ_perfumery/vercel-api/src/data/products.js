@@ -3,9 +3,8 @@ const products = [
         id: 1,
         title: "Tygar - Bvlgari",
         category: "women",
-        image: "blue-de-chanel.jpg",
-        // image: "tygar-bvlgari.png",
-        discount: 20, // %
+        image: "tygar-bvlgari.png",
+        discount: 0, // %
         prices: {
             "30": 30,
             "50": 50,
@@ -17,7 +16,7 @@ const products = [
         title: "Cartier - La Panthere",
         category: "women",
         image: "cartier-lapanthere.png",
-        discount: 0,
+        discount: 50,
         prices: {
             "30": 30,
             "50": 50,
@@ -29,7 +28,7 @@ const products = [
         title: "Bleu De Chanel",
         category: "women",
         image: "bleu-de-chanel.jpg",
-        discount: 0,
+        discount: 50,
         prices: {
             "30": 30,
             "50": 50,
@@ -41,7 +40,7 @@ const products = [
         title: "Tygar - Bvlgari",
         category: "men",
         image: "product_cartier_lapanthere.jpg",
-        discount: 0,
+        discount: 50,
         prices: {
             "30": 30,
             "50": 50,
@@ -77,7 +76,7 @@ const products = [
         title: "Tygar - Bvlgari",
         category: "women",
         image: "product_cartier_lapanthere.jpg",
-        discount: 60,
+        discount: 0,
         prices: {
             "30": 30,
             "50": 50,
@@ -89,7 +88,7 @@ const products = [
         title: "Tygar - Bvlgari",
         category: "unisex",
         image: "product_cartier_lapanthere.jpg",
-        discount: 20,
+        discount: 0,
         prices: {
             "30": 30,
             "50": 50,
@@ -101,7 +100,7 @@ const products = [
         title: "Tygar - Bvlgari",
         category: "men",
         image: "product_cartier_lapanthere.jpg",
-        discount: 30,
+        discount: 0,
         prices: {
             "30": 30,
             "50": 50,
