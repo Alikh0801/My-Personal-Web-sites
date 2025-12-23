@@ -18,12 +18,10 @@ function Slider() {
     const progressContent = useRef(null);
 
     useEffect(() => {
-        fetch("http://localhost:9000/api/products/discount")
+        fetch("https://azperfumeryapi.vercel.app/api/products/discount")
             .then(res => res.json())
             .then(result => {
                 if (result.ok) {
-                    console.log(result.data);
-
                     setdiscountProduct(result.data)
                 }
             })

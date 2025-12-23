@@ -6,13 +6,12 @@ function TopProducts() {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:9000/api/products/bestsellers")
+        fetch("https://azperfumeryapi.vercel.app/api/products/bestsellers")
             .then(res => res.json())
-            .then(data => {
-                const bestsell = data.filter(p => p.bestSeller === true);
-                setProducts(bestsell);
-            })
+            .then(data => setProducts(data.data));
     }, [])
+    console.log(products);
+
 
     return (
         <div className='bg-[#F2EEDF]'>
@@ -30,13 +29,13 @@ function TopProducts() {
                     </p>
                 </div>
 
-                <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 py-6 lg:py-12'>
-                    {products.map((products) => (
+                <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 py-6 lg:py-12 justify-items-center'>
+                    {products.map((product) => (
                         <ProductCard
-                            key={products.id}
-                            name={products.name}
-                            image={products.img}
-                            price={products.price}
+                            key={product.id}
+                            title={product.title}
+                            image={product.image}
+                            prices={product.prices}
                         />
                     ))}
                 </div>

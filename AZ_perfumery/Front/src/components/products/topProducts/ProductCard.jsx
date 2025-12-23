@@ -1,44 +1,72 @@
 import { useState } from "react";
 import { ShoppingCart } from "lucide-react";
 
-function ProductCard({ name, image, prices }) {
+function ProductCard({ title, image, prices }) {
     const [selectedMl, setSelectedMl] = useState("30ml");
+    console.log(title, image, prices);
 
     const getPrice = () => {
+        console.log(selectedMl);
+
         const key = selectedMl.replace("ml", "");
+        console.log(key);
+        console.log(prices);
+        console.log(prices?.[key]);
+
+
         return prices?.[key];
     };
 
     return (
-        <div className='relative flex flex-col gap-2 border border-gray-200 rounded-2xl
-            w-[140px] sm:w-[155px] md:w-[170px] lg:w-[200px] 2xl:w-[220px]
-            p-2 bg-[#FFFFF2] shadow-sm transition-all duration-300
-            hover:shadow-xl hover:-translate-y-1'
+        <div
+            className="
+    group relative flex flex-col
+    w-[175px] sm:w-[185px] md:w-[200px] lg:w-[200px] 2xl:w-[210px]
+    bg-[#FFFFF2] rounded-2xl border border-gray-200
+    shadow-sm transition-all duration-300
+    hover:shadow-xl hover:-translate-y-1"
         >
-            <img
-                src={`https://azperfumeryapi.vercel.app/api/uploads/${image}`}
-                alt={name}
-                className='rounded-xl w-full object-cover transition-transform duration-300 hover:scale-[1.03]'
-            />
+            {/* Image */}
+            <div className="relative overflow-hidden rounded-t-2xl">
+                <img
+                    src={`https://azperfumeryapi.vercel.app/api/uploads/${image}`}
+                    alt={title}
+                    className="
+              w-full h-[195px] sm:h-[210px] md:h-[220px] lg:h-[225px] 2xl:h-[250px]
+              object-cover transition-transform duration-500
+              group-hover:scale-105"
+                />
+            </div>
 
-            <h3 className='text-center text-sm font-semibold text-gray-800 line-clamp-2'>
-                {name}
-            </h3>
+            {/* Content */}
+            <div className="flex flex-col flex-1 p-3 gap-2">
+                <h3
+                    className="
+              text-center text-sm md:text-base
+              font-semibold text-gray-800
+              line-clamp-2 leading-snug"
+                >
+                    {title}
+                </h3>
 
-            <div className='flex flex-col gap-3 mt-auto'>
-                <div className='flex gap-2 justify-center text-sm'>
-                    <span className='text-gray-500'>Qiymət:</span>
-                    <span className='font-bold text-gray-900'>
+                {/* Price */}
+                <div className="flex justify-center items-center gap-1 text-sm mt-1">
+                    <span className="text-gray-500">Qiymət:</span>
+                    <span className="font-bold text-gray-900">
                         {getPrice()}₼
                     </span>
                 </div>
 
-                <div className='flex justify-between items-center px-1.5'>
+                {/* Bottom controls */}
+                <div className="mt-auto flex items-center justify-between gap-2">
                     <select
                         value={selectedMl}
                         onChange={(e) => setSelectedMl(e.target.value)}
-                        className='text-sm border rounded-lg px-2 py-1
-                            focus:ring-2 focus:ring-black/20 cursor-pointer'
+                        className="
+                  text-xs sm:text-sm
+                  border rounded-lg px-2 py-1
+                  bg-white cursor-pointer
+                  focus:outline-none focus:ring-2 focus:ring-black/20"
                     >
                         <option value="30ml">30ml</option>
                         <option value="50ml">50ml</option>
@@ -46,16 +74,20 @@ function ProductCard({ name, image, prices }) {
                     </select>
 
                     <button
-                        className='p-2 rounded-lg bg-black text-white
-                            transition-all duration-300
-                            hover:bg-gray-800 hover:scale-105
-                            active:scale-95 shadow-md'
+                        className="
+                  flex items-center justify-center
+                  p-2 rounded-lg
+                  bg-black text-white
+                  transition-all duration-300
+                  hover:bg-gray-800 hover:scale-105
+                  active:scale-95"
                     >
-                        <ShoppingCart className='w-3.5 h-3.5 md:w-5 md:h-5 transition-transform hover:scale-110' />
+                        <ShoppingCart className="w-4 h-4 sm:w-5 sm:h-5" />
                     </button>
                 </div>
             </div>
         </div>
+
     );
 }
 
