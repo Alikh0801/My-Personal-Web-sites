@@ -106,7 +106,7 @@ const products = [
     {
         id: 9,
         title: "Tygar - Bvlgari",
-        category: "men",
+        category: "women",
         image: "product_cartier_lapanthere.jpg",
         bestSeller: false,
         discount: 0,
