@@ -15,13 +15,13 @@ function WhyUs() {
                         <img
                             src="./blog/logobane.jpeg"
                             alt="Az_parfumery"
-                            className="w-[150px] sm:w-[180px] md:w-[220px] lg:w-[250px] 
+                            className="w-[150px] sm:w-[180px] md:w-[220px] lg:w-[230px] 2xl:w-60 
                            h-auto rounded-xl object-cover shrink-0 shadow-2xs"
                         />
                     </div>
 
                     {/* Mətn */}
-                    <p className="text-lg md:text-2xl lg:text-3xl leading-relaxed text-center py-7">
+                    <p className="text-lg md:text-2xl 2xl:text-3xl leading-relaxed text-center py-7">
                         Biz yalnız orijinal və sertifikatlı ətirlər təqdim edirik. Hər məhsul birbaşa etibarlı distribyutorlardan alınır və keyfiyyət zəmanəti ilə çatdırılır.
                         Müştərilərimiz üçün seçilmiş brendlər, eksklüziv koleksiyalar və uzunmüddətli qalıcılıq təmin edən ətirlər təklif edirik.
                         Sürətli çatdırılma, peşəkar xidmət və yüksək müştəri məmnuniyyəti bizim əsas prioritetimizdir.

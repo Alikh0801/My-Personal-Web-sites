@@ -10,6 +10,7 @@ import {
 function Navbar() {
     const [showSearch, setShowSearch] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [loginOpen, setLoginOpen] = useState(false);
 
     const searchRef = useRef(null);
     const inputRef = useRef(null);
@@ -35,9 +36,9 @@ function Navbar() {
 
     /* ---------------- Scroll Lock (Mobile Menu) ---------------- */
     useEffect(() => {
-        document.body.style.overflow = mobileMenuOpen ? "hidden" : "auto";
+        document.body.style.overflow = mobileMenuOpen || loginOpen ? "hidden" : "auto";
         return () => (document.body.style.overflow = "auto");
-    }, [mobileMenuOpen]);
+    }, [mobileMenuOpen, loginOpen]);
 
     return (
         <>
@@ -51,7 +52,7 @@ function Navbar() {
 
                 {/* Desktop Nav */}
                 <nav className="hidden lg:flex gap-10 text-xl font-[Lora]">
-                    <a className="hover:scale-110 transition-all hover:text-[#C8CC68] cursor-pointer">
+                    <a href="#products" className="hover:scale-110 transition-all hover:text-[#C8CC68] cursor-pointer">
                         Məhsullar
                     </a>
                     <a href="#footer" className="hover:scale-110 transition-all hover:text-[#C8CC68] cursor-pointer">
@@ -68,7 +69,7 @@ function Navbar() {
 
                     <ShoppingCart className="cursor-pointer hover:scale-110 transition-all" />
 
-                    <button className="flex gap-2 rounded-md px-4 py-2 font-[Lora] bg-[#2B5E33] hover:bg-[#3D7845] transition-all cursor-pointer">
+                    <button onClick={() => setLoginOpen(true)} className="flex gap-2 rounded-md px-4 py-2 font-[Lora] bg-[#2B5E33] hover:bg-[#3D7845] transition-all cursor-pointer">
                         Daxil ol <UserRound />
                     </button>
 
@@ -127,8 +128,8 @@ function Navbar() {
 
                 {/* Nav */}
                 <nav className="flex flex-col gap-6 mt-10 text-lg font-[Lora]">
-                    <a className="hover:text-[#C8CC68]">Məhsullar</a>
-                    <a className="hover:text-[#C8CC68]">Bizimlə əlaqə</a>
+                    <a href="#products" className="hover:text-[#C8CC68]">Məhsullar</a>
+                    <a href="#footer" className="hover:text-[#C8CC68]">Bizimlə əlaqə</a>
                 </nav>
 
                 {/* Mobile Search */}
@@ -144,11 +145,106 @@ function Navbar() {
                 {/* Actions */}
                 <div className="flex gap-14 mt-8 items-center">
                     <ShoppingCart />
-                    <button className="flex gap-2 rounded-md px-4 py-2 font-[Lora] bg-[#2B5E33]">
+                    <button onClick={() => {
+                        setMobileMenuOpen(false);
+                        setLoginOpen(true);
+                    }}
+                        className="flex gap-2 rounded-md px-4 py-2 font-[Lora] bg-[#2B5E33]">
                         Daxil ol <UserRound />
                     </button>
                 </div>
             </aside>
+            {/* ================= LOGIN OVERLAY ================= */}
+            <div
+                onClick={() => setLoginOpen(false)}
+                className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-50 transition-opacity
+                ${loginOpen ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+            />
+            {/* ================= LOGIN MODAL ================= */}
+            <div
+                className={`fixed inset-0 z-50 flex items-center justify-center px-4
+                transition-all duration-300
+                ${loginOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"}`}
+            >
+                <div className="w-full max-w-md bg-[#121212] text-[#EEF2D8] rounded-3xl shadow-2xl overflow-hidden">
+
+                    {/* Header */}
+                    <div className="relative px-6 pt-6 pb-4 border-b border-[#2a2a2a]">
+                        <h2 className="text-2xl font-[Lora] text-center">
+                            Hesaba daxil ol
+                        </h2>
+
+                        <X
+                            size={22}
+                            onClick={() => setLoginOpen(false)}
+                            className="absolute top-6 right-6 cursor-pointer hover:text-red-400 transition-colors"
+                        />
+                    </div>
+
+                    {/* Body */}
+                    <div className="px-6 py-6">
+                        <form className="flex flex-col gap-4">
+
+                            {/* Email */}
+                            <div className="flex flex-col gap-1">
+                                <label className="text-sm text-[#AEB39A]">
+                                    Email ünvanı
+                                </label>
+                                <input
+                                    type="email"
+                                    placeholder="example@mail.com"
+                                    className="bg-transparent border border-[#3a3a3a] rounded-xl px-4 py-3 outline-none focus:border-[#C8CC68] transition-colors"
+                                />
+                            </div>
+
+                            {/* Password */}
+                            <div className="flex flex-col gap-1">
+                                <label className="text-sm text-[#AEB39A]">
+                                    Şifrə
+                                </label>
+                                <input
+                                    type="password"
+                                    placeholder="••••••••"
+                                    className="bg-transparent border border-[#3a3a3a] rounded-xl px-4 py-3 outline-none focus:border-[#C8CC68] transition-colors"
+                                />
+                            </div>
+
+                            {/* Forgot password */}
+                            <div className="flex justify-end">
+                                <button
+                                    type="button"
+                                    className="text-sm text-[#C8CC68] hover:underline"
+                                >
+                                    Şifrəmi unutdum
+                                </button>
+                            </div>
+
+                            {/* Submit */}
+                            <button
+                                type="submit"
+                                className="mt-2 bg-[#2B5E33] hover:bg-[#3D7845] transition-all rounded-xl py-3 font-[Lora] text-lg"
+                            >
+                                Daxil ol
+                            </button>
+                        </form>
+                    </div>
+
+                    {/* Footer */}
+                    <div className="px-6 py-4 border-t border-[#2a2a2a] text-center">
+                        <p className="text-sm text-[#AEB39A]">
+                            Hesabınız yoxdur?
+                        </p>
+                        <button
+                            type="button"
+                            className="mt-1 text-[#C8CC68] hover:underline font-medium"
+                        >
+                            Yeni hesab yarat
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
         </>
     );
 }

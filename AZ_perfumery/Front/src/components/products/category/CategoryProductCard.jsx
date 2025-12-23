@@ -14,7 +14,7 @@ function CategoryProductCard({ title, image, prices }) {
         <div
             className="
         group relative flex flex-col
-        w-40 sm:w-[185px] md:w-[190px] lg:w-[200px] 2xl:w-[210px]
+        w-[155px] sm:w-[185px] md:w-[190px] lg:w-[200px] 2xl:w-[210px]
         bg-[#FFFFF2] rounded-2xl border border-gray-200
         shadow-sm transition-all duration-300
         hover:shadow-xl hover:-translate-y-1"
