@@ -1,8 +1,19 @@
 import React from 'react'
-import { topProducts } from '../../../db/topProducts';
+import { useState, useEffect } from 'react';
 import ProductCard from './ProductCard';
 
 function TopProducts() {
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        fetch("http://localhost:9000/api/products/bestsellers")
+            .then(res => res.json())
+            .then(data => {
+                const bestsell = data.filter(p => p.bestSeller === true);
+                setProducts(bestsell);
+            })
+    }, [])
+
     return (
         <div className='bg-[#F2EEDF]'>
             <div className='max-w-[1440px] mx-auto'>
@@ -20,7 +31,7 @@ function TopProducts() {
                 </div>
 
                 <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 py-6 lg:py-12'>
-                    {topProducts.map((products) => (
+                    {products.map((products) => (
                         <ProductCard
                             key={products.id}
                             name={products.name}

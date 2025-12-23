@@ -36,7 +36,19 @@ const getDiscountProducts = (req, res) => {
     })
 }
 
+const getBestSellerProducts = (req, res) => {
+    const bestSellerProducts = products.filter(item => item.bestSeller === true)
+
+    return res.status(200).json({
+        ok: true,
+        message: "Best seller products fetched successfully",
+        count: bestSellerProducts.length,
+        data: bestSellerProducts
+    })
+}
+
 module.exports = {
     getCategoryProduct,
-    getDiscountProducts
+    getDiscountProducts,
+    getBestSellerProducts
 }
