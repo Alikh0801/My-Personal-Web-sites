@@ -20,11 +20,11 @@ function Footer() {
 
                         {/* Phone */}
                         <a
-                            href="tel:+994552137797"
+                            href="tel:+994702137797"
                             className="flex items-center gap-2 hover:text-pink-500 transition-colors"
                         >
                             <Phone size={20} />
-                            +994 55 213 77 97
+                            +994 70 213 77 97
                         </a>
 
                         {/* Social links */}
@@ -38,7 +38,7 @@ function Footer() {
                                 <Instagram size={24} />
                             </a>
                             <a
-                                href="https://wa.me/994552137797"
+                                href="https://wa.me/994702137797"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="hover:text-emerald-500 transition-colors"
