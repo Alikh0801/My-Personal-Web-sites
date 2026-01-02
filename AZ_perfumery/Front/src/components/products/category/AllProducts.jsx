@@ -14,7 +14,7 @@ function AllProducts() {
             const width = window.innerWidth;
             if (width < 640) setItemsPerPage(6);
             else if (width < 768) setItemsPerPage(6);
-            else if (width < 1024) setItemsPerPage(8);
+            else if (width < 1024) setItemsPerPage(9);
             else if (width < 1280) setItemsPerPage(8);
             else if (width < 1536) setItemsPerPage(10);
             else setItemsPerPage(12);

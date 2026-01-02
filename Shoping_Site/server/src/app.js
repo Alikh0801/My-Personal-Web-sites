@@ -1,7 +1,8 @@
 const express = require("express");
-const cors = require("cors");
+// const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const dbConnect = require("./config/db");
+const router = require("./routes/auth.routes");
 
 const app = express();
 
@@ -13,5 +14,6 @@ app.use(cookieParser());
 //     origin: "http://localhost: ",   front host yazilacaq 
 //     credentials: true
 // }))
+app.use("/api/auth", router)
 
 module.exports = app;

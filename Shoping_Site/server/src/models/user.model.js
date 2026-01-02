@@ -9,6 +9,19 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
+    },
+    fullName: {
+        type: String,
+        required: true
+    },
+    userType: {
+        type: String,
+        enum: ['admin', 'user'],
+        default: 'user'
+    },
+    phoneNumber: {
+        type: String,
+        required: true
     }
 })
 
