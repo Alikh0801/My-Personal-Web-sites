@@ -6,7 +6,7 @@ function TopProducts() {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch("https://azperfumeryapi.vercel.app/api/products/bestsellers")
+        fetch("http://localhost:9000/api/products/bestsellers")
             .then(res => res.json())
             .then(data => setProducts(data.data));
     }, [])
