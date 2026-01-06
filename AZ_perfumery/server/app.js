@@ -32,5 +32,3 @@ app.use("/api", router);
 app.listen(config.port, () => {
     console.log(`Server is running`);
 });
-
-module.exports = app
