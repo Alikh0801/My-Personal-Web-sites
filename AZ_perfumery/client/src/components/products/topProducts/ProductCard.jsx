@@ -29,7 +29,7 @@ function ProductCard({ title, image, prices }) {
             {/* Image */}
             <div className="relative overflow-hidden rounded-t-2xl">
                 <img
-                    src={`https://azperfumeryapi.vercel.app/api/uploads/${image}`}
+                    src={`http://localhost:9000${image}`}
                     alt={title}
                     className="
               w-full h-[195px] sm:h-[210px] md:h-[220px] lg:h-[225px] 2xl:h-[250px]

@@ -26,7 +26,7 @@ function AllProducts() {
 
     // Data fetch
     useEffect(() => {
-        fetch(`https://azperfumeryapi.vercel.app/api/products?category=${category}`)
+        fetch(`http://localhost:9000/api/products?category=${category}`)
             .then(res => res.json())
             .then(result => setProducts(result.data))
             .catch(err => console.error(err));
@@ -69,7 +69,7 @@ function AllProducts() {
                 <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-12 py-5 px-6 justify-items-center'>
                     {currentProducts.map(product => (
                         <CategoryProductCard
-                            key={product.id}
+                            key={product._id}
                             image={product.image}
                             title={product.title}
                             prices={product.prices}

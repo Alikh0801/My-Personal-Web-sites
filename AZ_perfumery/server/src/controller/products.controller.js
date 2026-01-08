@@ -112,11 +112,44 @@ const createProduct = async (req, res) => {
     }
 };
 
+const searchProducts = async (req, res) => {
+    try {
+        const { q } = req.query;
+
+        if (!q || q.trim().length < 2) {
+            return res.status(200).json({
+                ok: true,
+                data: []
+            });
+        }
+
+        const products = await Product.find({
+            title: { $regex: q, $options: "i" },
+            isActive: true
+        }).limit(6);
+
+        return res.status(200).json({
+            ok: true,
+            count: products.length,
+            data: products
+        });
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            ok: false,
+            message: "Internal server error"
+        });
+    }
+};
+
+
 
 
 module.exports = {
     getCategoryProduct,
     getDiscountProducts,
     getBestSellerProducts,
-    createProduct
+    createProduct,
+    searchProducts
 }

@@ -51,7 +51,7 @@ function Slider() {
             >
                 {
                     discountProduct.map((p) => (
-                        <SwiperSlide key={p.id}>
+                        <SwiperSlide key={p._id}>
 
                             <div className='flex flex-col bg-[#131329] p-3 rounded-xl text-[#F3F5DF] gap-2 md:p-4'>
                                 <div className='px-2 flex flex-col gap-2'>
@@ -64,7 +64,7 @@ function Slider() {
 
                                 <div className='w-full'>
                                     <img
-                                        src={`https://azperfumeryapi.vercel.app/api/uploads/${p.image}`}
+                                        src={`http://localhost:9000${p.image}`}
                                         alt="parfumeSwipper"
                                         className="h-[300px] sm:h-[310px] md:h-[350px] w-full p-1 rounded-2xl"
                                     />
