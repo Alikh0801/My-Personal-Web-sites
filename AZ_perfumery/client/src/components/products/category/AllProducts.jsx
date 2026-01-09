@@ -70,6 +70,7 @@ function AllProducts() {
                     {currentProducts.map(product => (
                         <CategoryProductCard
                             key={product._id}
+                            _id={product._id}
                             image={product.image}
                             title={product.title}
                             prices={product.prices}

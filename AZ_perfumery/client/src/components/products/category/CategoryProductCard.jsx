@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { ShoppingCart } from 'lucide-react';
+import { useCart } from '../../../context/CartContext';
 
-function CategoryProductCard({ title, image, prices }) {
+function CategoryProductCard({ _id, title, image, prices }) {
+    const { addToCart } = useCart();
     const [selectedMl, setSelectedMl] = useState("30ml");
 
     const getPrice = () => {
@@ -67,16 +69,24 @@ function CategoryProductCard({ title, image, prices }) {
                     </select>
 
                     <button
+                        onClick={() => addToCart({
+                            _id,
+                            title,
+                            image,
+                            selectedMl,
+                            price: getPrice()
+                        })}
                         className="
-                    flex items-center justify-center
-                    p-2 rounded-lg
-                    bg-black text-white
-                    transition-all duration-300
-                    hover:bg-gray-800 hover:scale-105
-                    active:scale-95"
+                        flex items-center justify-center
+                        p-2 rounded-lg
+                        bg-black text-white
+                        transition-all duration-300
+                        hover:bg-gray-800 hover:scale-105
+                        active:scale-95"
                     >
                         <ShoppingCart className="w-4 h-4 sm:w-5 sm:h-5" />
                     </button>
+
                 </div>
             </div>
         </div>

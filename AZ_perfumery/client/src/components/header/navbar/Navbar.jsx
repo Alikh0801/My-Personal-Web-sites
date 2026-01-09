@@ -6,6 +6,7 @@ import {
     X,
     Menu,
 } from "lucide-react";
+import { useCart } from "../../../context/CartContext";
 
 function Navbar() {
     const [showSearch, setShowSearch] = useState(false);
@@ -15,10 +16,17 @@ function Navbar() {
     const [searchResults, setSearchResults] = useState([]);
     const [searchOpen, setSearchOpen] = useState(false);
     const [searchMl, setSearchMl] = useState({});
+    const [cartOpen, setCartOpen] = useState(false);
+    const { cartItems, addToCart, increaseQuantity, decreaseQuantity, removeFromCart } = useCart();
 
 
     const searchRef = useRef(null);
     const inputRef = useRef(null);
+
+    const totalPrice = cartItems.reduce(
+        (acc, item) => acc + item.price * item.quantity,
+        0
+    );
 
     /* ---------------- Desktop Search Outside Click ---------------- */
     useEffect(() => {
@@ -96,7 +104,27 @@ function Navbar() {
                         className="cursor-pointer hover:scale-110 transition-all"
                     />
 
-                    <ShoppingCart className="cursor-pointer hover:scale-110 transition-all" />
+                    <div
+                        onClick={() => setCartOpen(true)}
+                        className="relative cursor-pointer hover:scale-110 transition-all"
+                    >
+                        <ShoppingCart size={22} />
+
+                        {cartItems.length > 0 && (
+                            <span
+                                className="
+                                absolute -top-2 -right-2
+                              bg-red-500 text-white
+                                text-[10px] font-bold
+                                w-5 h-5
+                                rounded-full
+                                flex items-center justify-center"
+                            >
+                                {cartItems.length}
+                            </span>
+                        )}
+                    </div>
+
 
                     <button onClick={() => setLoginOpen(true)} className="flex gap-2 rounded-md px-4 py-2 font-[Lora] bg-[#2B5E33] hover:bg-[#3D7845] transition-all cursor-pointer">
                         Daxil ol <UserRound />
@@ -164,9 +192,23 @@ function Navbar() {
                                                             <option value="100ml">100ml</option>
                                                         </select>
 
-                                                        <button className="p-1 rounded bg-black text-white hover:scale-105 transition">
+                                                        <button
+                                                            onClick={(e) => {
+                                                                e.stopPropagation();
+                                                                addToCart({
+                                                                    _id: product._id,
+                                                                    title: product.title,
+                                                                    image: product.image,
+                                                                    selectedMl,
+                                                                    price: getSearchPrice(product.prices, selectedMl),
+                                                                });
+
+                                                            }}
+                                                            className="p-1 rounded bg-black text-white"
+                                                        >
                                                             <ShoppingCart size={14} />
                                                         </button>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -313,11 +355,23 @@ function Navbar() {
                                                 </select>
 
                                                 <button
-                                                    onClick={(e) => e.stopPropagation()}
+                                                    onClick={(e) => {
+                                                        e.stopPropagation();
+                                                        addToCart({
+                                                            _id: product._id,
+                                                            title: product.title,
+                                                            image: product.image,
+                                                            selectedMl,
+                                                            price: getSearchPrice(product.prices, selectedMl),
+                                                        });
+
+                                                    }}
                                                     className="p-2 rounded bg-black text-white"
                                                 >
                                                     <ShoppingCart size={14} />
                                                 </button>
+
+
                                             </div>
                                         </div>
                                     </div>
@@ -340,7 +394,27 @@ function Navbar() {
 
                 {/* Actions */}
                 <div className="flex gap-14 mt-8 items-center">
-                    <ShoppingCart />
+                    <div
+                        onClick={() => setCartOpen(true)}
+                        className="relative cursor-pointer"
+                    >
+                        <ShoppingCart size={24} />
+
+                        {cartItems.length > 0 && (
+                            <span
+                                className="
+                                absolute -top-2 -right-2
+                                bg-red-500 text-white
+                                text-[11px] font-bold
+                                w-5 h-5
+                                rounded-full
+                                flex items-center justify-center"
+                            >
+                                {cartItems.length}
+                            </span>
+                        )}
+                    </div>
+
                     <button onClick={() => {
                         setMobileMenuOpen(false);
                         setLoginOpen(true);
@@ -351,9 +425,68 @@ function Navbar() {
                 </div>
             </aside>
 
+            {/* CART OVERLAY */}
+            {cartOpen && (
+                <div
+                    onClick={() => setCartOpen(false)}
+                    className="fixed inset-0 bg-black/50 z-40"
+                />
+            )}
+
+            {/* CART ASIDE */}
+            <aside
+                className={`fixed top-0 right-0 h-full w-[320px] bg-[#1f1e1e]
+                text-white z-50 p-5 transition-transform duration-300
+                ${cartOpen ? "translate-x-0" : "translate-x-full"}`}
+            >
+                <div className="flex justify-between items-center mb-4">
+                    <h2 className="text-lg">Səbət</h2>
+                    <X onClick={() => setCartOpen(false)} />
+                </div>
+
+                {cartItems.length === 0 ? (
+                    <p className="text-gray-400 text-sm">Səbət boşdur</p>
+                ) : (
+                    <>
+                        {cartItems.map((item, i) => (
+                            <div key={i} className="flex gap-3 mb-3 items-center">
+                                <img src={`http://localhost:9000${item.image}`} className="w-12 h-12 rounded" />
+                                <div className="flex-1">
+                                    <p className="text-sm">{item.title}</p>
+                                    <p className="text-xs text-[#C8CC68]">{item.selectedMl} — {item.price} ₼</p>
+
+                                    <div className="flex items-center justify-between gap-2 mt-1">
+                                        <div className="flex gap-3">
+                                            <button onClick={() => decreaseQuantity(item)} className="bg-gray-700 px-2 rounded text-white">-</button>
+                                            <span>{item.quantity}</span>
+                                            <button onClick={() => increaseQuantity(item)} className="bg-gray-700 px-2 rounded text-white">+</button>
+                                        </div>
+                                        <div>
+                                            <button onClick={() => removeFromCart(item)} className="bg-red-500 px-2 rounded text-white">Sil</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+
+                        {/* Total Price */}
+                        <div className="mt-4 border-t border-gray-600 pt-3">
+                            <div className="flex justify-between font-semibold text-lg">
+                                <span>Cəmi:</span>
+                                <span>{totalPrice.toFixed(2)} ₼</span>
+                            </div>
+                        </div>
+                    </>
+                )}
+
+
+            </aside >
+
+
             {/* ================= LOGIN OVERLAY ================= */}
-            <div
-                onClick={() => setLoginOpen(false)}
+            < div
+                onClick={() => setLoginOpen(false)
+                }
                 className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-50 transition-opacity
                 ${loginOpen ? "opacity-100" : "opacity-0 pointer-events-none"}`}
             />
